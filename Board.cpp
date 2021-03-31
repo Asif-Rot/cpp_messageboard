@@ -24,7 +24,7 @@ namespace ariel {
         if (d == Direction::Horizontal) {
             if (row >= showboard.size()) {
                 newsize = row + 2 - showboard.size();
-                resizerow(showboard, row + 2 - showboard.size(), showboard[0].size());
+                resizerow(showboard, newsize, showboard[0].size());
             }
             
             if (col + message.length() > showboard[0].size()) {
@@ -57,7 +57,7 @@ namespace ariel {
 
     string Board::read(unsigned int row, unsigned int col, Direction d, unsigned int length) {
         string printit;
-        unsigned int newsize;
+        unsigned int newsize = 0;
         if (d == Direction::Horizontal) {
             if (row >= showboard.size()) {
                 newsize = row + 1 - showboard.size();
